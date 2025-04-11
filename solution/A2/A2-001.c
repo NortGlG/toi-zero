@@ -1,17 +1,17 @@
 #include<stdio.h>
-void swap(int& a, int& b) {
-    int c = a;
-    a = b;
-    b = c;
-}
+#define swap(a, b) do { typeof(a) temp = a; a = b; b = temp; } while (0)
 int a[505], b[505];
 int cut1(int x1, int x2, int y1, int y2) {
-    if (x1 > y1) swap(x1, y1), swap(x2, y2);
+    if (x1 > y1) {
+        swap(x1, y1); swap(x2, y2);
+    }
     if (x1 == y1 || x2 == y2) return 0;
     return x2 > y2;
 }
 int cut2(int x1, int x2, int y1, int y2) {
-    if (x1 > y1) swap(x1, y1), swap(x2, y2);
+    if (x1 > y1) {
+        swap(x1, y1); swap(x2, y2);
+    }
     return x2 > y1;
 }
 int main() {
