@@ -53,4 +53,5 @@ int main() {
         printf("%d ", stack[i]);
     }
     printf("\n");
+    return 0;
 }

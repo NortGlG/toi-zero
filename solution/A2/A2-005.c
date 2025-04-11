@@ -20,4 +20,5 @@ int main() {
         }
     }
     printf("%d %d\n", mx1, mx2);
+    return 0;
 }
