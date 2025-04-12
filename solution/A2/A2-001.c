@@ -1,18 +1,10 @@
 #include<stdio.h>
-#define swap(a, b) do { typeof(a) temp = a; a = b; b = temp; } while (0)
 int a[505], b[505];
 int cut1(int x1, int x2, int y1, int y2) {
-    if (x1 > y1) {
-        swap(x1, y1); swap(x2, y2);
-    }
-    if (x1 == y1 || x2 == y2) return 0;
-    return x2 > y2;
+    return (x1 < y1 && x2 > y2) || (x1 > y1 && y2 > x2);
 }
 int cut2(int x1, int x2, int y1, int y2) {
-    if (x1 > y1) {
-        swap(x1, y1); swap(x2, y2);
-    }
-    return x2 > y1;
+    return (x1 <= y1 && x2 > y1) || (x1 > y1 && y2 > x1);
 }
 int main() {
     int n, m;
@@ -26,8 +18,10 @@ int main() {
     }
     for (int i = 0;i < n;i++) {
         for (int j = 0;j < m;j++) {
-            if (i % 2 == j % 2 && cut1(a[i], a[i + 1], b[j], b[j + 1])) ans++; // from same side
-            else if (i % 2 != j % 2 && cut2(a[i], a[i + 1], b[j], b[j + 1])) ans++; // from different side
+            if (i % 2 == j % 2 && cut1(a[i], a[i + 1], b[j], b[j + 1]))
+                ans++; // from same side
+            else if (i % 2 != j % 2 && cut2(a[i], a[i + 1], b[j], b[j + 1]))
+                ans++; // from different side
         }
     }
     printf("%d\n", ans);
