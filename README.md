@@ -9,3 +9,7 @@ All solution files are written in C, and also possibly in C++ in the future. (?)
 - [Sean Wanitchollakit](https://github.com/NortGlG)
 
 Currently work in progress !!! 🛠️
+
+### This project is licensed under CC BY-NC 4.0.  
+
+### so please don't use it for commercial purpose :)
